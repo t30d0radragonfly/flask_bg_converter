@@ -1,0 +1,8 @@
+sqlalchemy
+config
+Flask
+flask-sqlalchemy
+datetime
+SQLAlchemy
+flask
+flask_sqlalchemy

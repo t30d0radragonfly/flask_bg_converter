@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title></title>
+{% endblock %}
+
+{% block body %}
+<div class="container mt-5">
+   <div class="content text-center">
+       <h1>Администриране на валута</h1><br>
+       <h4>Добавете валута / Обновете информация за валутата</h4>
+   </div>
+</div>
+<div class="content mt-5 text-center">
+    <table align="center">
+        <tr>
+            <th><h5>&nbsp; Валута &nbsp;</h5></th>
+            <th><h5>&nbsp; Обменен курс &nbsp;</h5></th>
+            <th><h5>&nbsp; Действия &nbsp;</h5></th>
+        </tr>
+        {% for curr in chart %}
+            <tr>
+                <td>{{ curr.currency_name }}</td>
+                <td>{{ curr.currency_rate }}</td>
+                <td>
+                    <a href="/update/{{curr.currency_id}}">Обнови</a>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+    <div class="container mt-3 text-center">
+        <form action="/admin" method="POST">
+            <input type="text" name="currencytype" id="currencytype">
+            <input type="number" step="0.00001" name="currencyrate" id="currencyrate">
+            <input type="submit" value="Добави валута">
+        </form>
+    </div>
+    <br>
+    <a href="/" class="btn btn-primary"><- Към начална страница</a>
+</div>
+{% endblock %}
